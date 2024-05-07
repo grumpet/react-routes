@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import SwipeCards from 'react-native-swipe-cards';
-
+//need to change to swipeable card TinderCard unvalid
 const TinderCard = (props) => {
   const cards = [
     { text: "Card 1", uri: require('../components/b.jpeg') },
