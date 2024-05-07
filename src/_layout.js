@@ -16,9 +16,9 @@ function Layout() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
         <Stack.Screen name="About" component={About} options={{ headerShown: false }}/>
-        <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }}/>
-        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }}/>
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
+        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
       </NavigationContainer>
