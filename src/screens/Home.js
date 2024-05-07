@@ -1,16 +1,20 @@
-import { View, Text ,Button} from 'react-native'
+import { View, Text ,Button,Image,StyleSheet} from 'react-native'
 import React from 'react'
 import { useNavigation,useRootNavigationState, Redirect, router } from 'expo-router';
+import SwipeCards from '../components/SwipeCards'
 
 const Home = ({ navigation }) => {
 
+
+
   return (
-    <View>
-    <Button
-        title="Go to Details"
+    <View style={styles.container}>
+
+      <SwipeCards/>
+      <Button
+        title="About"
         onPress={() => {
-          /* 1. Navigate to the Details route with params */
-          navigation.navigate('About', {
+            navigation.navigate('About', {
             itemId: 86,
             otherParam: 'anything you want here',
           });
@@ -19,5 +23,12 @@ const Home = ({ navigation }) => {
     </View>
   )
 }
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 export default Home
