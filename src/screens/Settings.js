@@ -13,6 +13,11 @@ const Settings = ({ navigation }) => {
       title: 'Login',
       navigateTo: 'Login',
     },
+    {
+      id: '3',
+      title: 'Profile',
+      navigateTo: 'Profile',
+    }
     // Add more options here
   ];
 

@@ -11,11 +11,11 @@ const Menu = ({}) => {
   return (
     <View>
     <Header
-      leftComponent={
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Icon name='user' type='font-awesome' color='#fff' />
-        </TouchableOpacity>
-      }
+        leftComponent={
+          <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+            <Icon name='comment' type='font-awesome' color='#fff' />
+          </TouchableOpacity>
+        }
       centerComponent={
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Text style={{ color: '#fff' }}>Swappers</Text>

@@ -7,7 +7,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [city, setCity] = useState('');
   const [profilePic, setProfilePic] = useState(null);
-  const [inventoryPics, setInventoryPics] = useState([null, null, null]);
+  const [inventoryPic, setInventoryPic] = useState(null);
+  const [inventoryDescription, setInventoryDescription] = useState('');
 
   const handleRegister = () => {
     // Perform registration operation
@@ -26,18 +27,9 @@ const Register = () => {
     });
   };
 
-  const selectInventoryImage = (index) => {
-    selectImage((source) => {
-      setInventoryPics((prev) => {
-        const copy = [...prev];
-        copy[index] = source;
-        return copy;
-      });
-    });
-  };
-
   return (
     <View style={styles.container}>
+    <View style={styles.text_box}>
       <TextInput
         style={styles.input}
         onChangeText={setEmail}
@@ -58,20 +50,24 @@ const Register = () => {
         value={city}
         placeholder="City"
       />
+      </View>
+      <View style={styles.profile_pic_box}>
+
       <Button title="Select Profile Picture" onPress={() => selectImage(setProfilePic)} />
       <Image source={profilePic} style={styles.image} />
-      <View style={styles.inventory}>
-        {inventoryPics.map((pic, index) => (
-          <View key={index}>
-          
-            <Button title={`Select Inventory Picture ${index + 1}`} onPress={() => selectInventoryImage(index)} />
+    </View>
+    <View style={styles.inventory_box}>
+      <Button title="Select Inventory Picture" onPress={() => selectImage(setInventoryPic)} />
+      <Image source={inventoryPic} style={styles.image} />
+      <TextInput
+        style={styles.input}
+        onChangeText={setInventoryDescription}
+        value={inventoryDescription}
+        placeholder="Inventory Description"
+      />
+  </View>
+  <Button style = {styles.Button} title="Register" onPress={handleRegister} />
 
-            <Image source={pic} style={styles.image} />
-
-          </View>
-        ))}
-      </View>
-      <Button title="Register" onPress={handleRegister} />
     </View>
   );
 }
@@ -81,6 +77,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 16,
+    flexDirection: 'column',
+  },
+  text_box:{
+    flex: 2,
+    borderWidth: 10,//remove in end
+    justifyContent: 'center',
+  },
+  profile_pic_box:{
+    flex: 3,
+    borderWidth: 10,//remove in end
+    justifyContent: 'center',
+
+  },
+  inventory_box:{
+    flex: 3,
+    borderWidth: 10,//remove in end
+    justifyContent: 'center',
+
   },
   input: {
     height: 40,
@@ -88,22 +102,21 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 12,
     paddingLeft: 8,
+    borderRadius: 10,
   },
   image: {
     width: 100,
     height: 100,
     marginBottom: 12,
   },
-  inventory: {
-    justifyContent: 'space-between',
-    marginBottom: 0,
-    marginTop: 0,
-
-    
+  Button: {
+    backgroundColor: 'blue',
+    color: 'white',
+    padding: 10,
+    borderRadius: 5,
+    textAlign: 'center',
+    marginTop: 10,
   },
-  
-
-
 });
 
 export default Register;
