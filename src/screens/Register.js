@@ -63,8 +63,11 @@ const Register = () => {
       <View style={styles.inventory}>
         {inventoryPics.map((pic, index) => (
           <View key={index}>
+          
             <Button title={`Select Inventory Picture ${index + 1}`} onPress={() => selectInventoryImage(index)} />
+
             <Image source={pic} style={styles.image} />
+
           </View>
         ))}
       </View>
@@ -92,10 +95,15 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   inventory: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 12,
+    marginBottom: 0,
+    marginTop: 0,
+
+    
   },
+  
+
+
 });
 
 export default Register;
